@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail de la formation</title>
+</head>
+<body>
+    <h1>Détail de la formation</h1>
+    <p><strong>Titre :</strong> {{ formation.titre }}</p>
+    <p><strong>Employés :</strong>
+        {% for employe in formation.employes.all %}
+            {{ employe }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p><strong>Date début :</strong> {{ formation.date_debut }}</p>
+    <p><strong>Date fin :</strong> {{ formation.date_fin }}</p>
+    <p><strong>Organisme :</strong> {{ formation.organisme }}</p>
+    <a href="{% url 'modifier_formation' formation.pk %}">Modifier</a> |
+    <a href="{% url 'supprimer_formation' formation.pk %}">Supprimer</a> |
+    <a href="{% url 'liste_formations' %}">Retour à la liste</a>
+</body>
+</html>

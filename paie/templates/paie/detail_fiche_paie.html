@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail de la fiche de paie</title>
+</head>
+<body>
+    <h1>Détail de la fiche de paie</h1>
+    <p><strong>Employé :</strong> {{ fiche.employe }}</p>
+    <p><strong>Mois :</strong> {{ fiche.mois }}</p>
+    <p><strong>Année :</strong> {{ fiche.annee }}</p>
+    <p><strong>Montant :</strong> {{ fiche.montant }}</p>
+    <p><strong>Date de versement :</strong> {{ fiche.date_versement }}</p>
+    <a href="{% url 'modifier_fiche_paie' fiche.pk %}">Modifier</a> |
+    <a href="{% url 'supprimer_fiche_paie' fiche.pk %}">Supprimer</a> |
+    <a href="{% url 'liste_fiches_paie' %}">Retour à la liste</a>
+</body>
+</html>

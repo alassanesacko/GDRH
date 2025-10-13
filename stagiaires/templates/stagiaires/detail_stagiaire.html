@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail du stagiaire</title>
+</head>
+<body>
+    <h1>Détail du stagiaire</h1>
+    <p><strong>Nom :</strong> {{ stagiaire.nom }}</p>
+    <p><strong>Prénom :</strong> {{ stagiaire.prenom }}</p>
+    <p><strong>Email :</strong> {{ stagiaire.email }}</p>
+    <p><strong>Téléphone :</strong> {{ stagiaire.telephone }}</p>
+    <p><strong>Ecole :</strong> {{ stagiaire.ecole }}</p>
+    <p><strong>Date début :</strong> {{ stagiaire.date_debut }}</p>
+    <p><strong>Date fin :</strong> {{ stagiaire.date_fin }}</p>
+    <p><strong>Sujet :</strong> {{ stagiaire.sujet }}</p>
+    <a href="{% url 'modifier_stagiaire' stagiaire.pk %}">Modifier</a> |
+    <a href="{% url 'supprimer_stagiaire' stagiaire.pk %}">Supprimer</a> |
+    <a href="{% url 'liste_stagiaires' %}">Retour à la liste</a>
+</body>
+</html>

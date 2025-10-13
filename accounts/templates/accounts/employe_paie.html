@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma paie</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/employe_paie.css' %}">
+</head>
+<body>
+    <div class="paie-container">
+        <h2 class="paie-title"><i class="fas fa-money-check-alt"></i> Ma paie</h2>
+        <div class="paie-desc">Informations sur votre paie.</div>
+        {% if paie_list %}
+        <div class="paie-list">
+            {% for paie in paie_list %}
+            <div class="paie-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span><strong>Période :</strong> {{ paie.periode }}</span>
+                <span><strong>Montant :</strong> {{ paie.montant }}</span>
+                <span><strong>Statut :</strong> {{ paie.statut }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="paie-empty"><i class="fas fa-info-circle"></i> Aucune fiche de paie enregistrée.</div>
+        {% endif %}
+        <div style="margin-top:2.2rem; text-align:center;">
+            <a href="{% url 'dashboard_employe' %}" class="profil-btn"><i class="fas fa-arrow-left"></i> Retour au dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

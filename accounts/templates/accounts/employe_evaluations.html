@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes évaluations</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/employe_evaluations.css' %}">
+</head>
+<body>
+    <div class="evaluations-container">
+        <h2 class="evaluations-title"><i class="fas fa-clipboard-check"></i> Mes évaluations</h2>
+        <div class="evaluations-desc">Liste de vos évaluations.</div>
+        {% if evaluations_list %}
+        <div class="evaluations-list">
+            {% for evaluation in evaluations_list %}
+            <div class="evaluations-item">
+                <i class="fas fa-star"></i>
+                <span><strong>Date :</strong> {{ evaluation.date }}</span>
+                <span><strong>Note :</strong> {{ evaluation.note }}</span>
+                <span><strong>Commentaire :</strong> {{ evaluation.commentaire }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="evaluations-empty"><i class="fas fa-info-circle"></i> Aucune évaluation enregistrée.</div>
+        {% endif %}
+        <div style="margin-top:2.2rem; text-align:center;">
+            <a href="{% url 'dashboard_employe' %}" class="profil-btn"><i class="fas fa-arrow-left"></i> Retour au dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

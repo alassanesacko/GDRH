@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail du contrat</title>
+</head>
+<body>
+    <h1>Détail du contrat</h1>
+    <p><strong>Employé :</strong> {{ contrat.employe }}</p>
+    <p><strong>Type de contrat :</strong> {{ contrat.type_contrat }}</p>
+    <p><strong>Date début :</strong> {{ contrat.date_debut }}</p>
+    <p><strong>Date fin :</strong> {{ contrat.date_fin }}</p>
+    <p><strong>Salaire :</strong> {{ contrat.salaire }}</p>
+    <a href="{% url 'modifier_contrat' contrat.pk %}">Modifier</a> |
+    <a href="{% url 'supprimer_contrat' contrat.pk %}">Supprimer</a> |
+    <a href="{% url 'liste_contrats' %}">Retour à la liste</a>
+</body>
+</html>

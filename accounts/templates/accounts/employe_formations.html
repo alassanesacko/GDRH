@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes formations</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/employe_formations.css' %}">
+</head>
+<body>
+    <div class="formations-container">
+        <h2 class="formations-title"><i class="fas fa-graduation-cap"></i> Mes formations</h2>
+        <div class="formations-desc">Liste de vos formations suivies.</div>
+        {% if formations_list %}
+        <div class="formations-list">
+            {% for formation in formations_list %}
+            <div class="formations-item">
+                <i class="fas fa-book"></i>
+                <span><strong>Intitulé :</strong> {{ formation.intitule }}</span>
+                <span><strong>Date début :</strong> {{ formation.date_debut }}</span>
+                <span><strong>Date fin :</strong> {{ formation.date_fin }}</span>
+                <span><strong>Organisme :</strong> {{ formation.organisme }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="formations-empty"><i class="fas fa-info-circle"></i> Aucune formation enregistrée.</div>
+        {% endif %}
+        <div style="margin-top:2.2rem; text-align:center;">
+            <a href="{% url 'dashboard_employe' %}" class="profil-btn"><i class="fas fa-arrow-left"></i> Retour au dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

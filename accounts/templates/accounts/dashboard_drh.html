@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard DRH</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/dashboard_drh.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-briefcase"></i> DRH Menu
+        </div>
+        <button class="navbar-toggle" onclick="document.querySelector('.navbar-menu').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-menu">
+            <a href="/personnel/"><i class="fas fa-users"></i> Personnel</a>
+            <a href="/conges/"><i class="fas fa-calendar-check"></i> Congés</a>
+            <a href="/contrats/"><i class="fas fa-file-contract"></i> Contrats</a>
+            <a href="/evaluations/"><i class="fas fa-chart-line"></i> Évaluations</a>
+            <a href="/formations/"><i class="fas fa-graduation-cap"></i> Formations</a>
+            <a href="/paie/"><i class="fas fa-money-check-alt"></i> Paie</a>
+            <a href="/stagiaires/"><i class="fas fa-user-graduate"></i> Stagiaires</a>
+        </div>
+        <a href="{% url 'logout' %}" class="navbar-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="welcome">
+        <h2><i class="fas fa-briefcase"></i> Bienvenue sur le tableau de bord DRH</h2>
+        <div class="menu-list">
+            <a href="/personnel/" class="menu-item"><i class="fas fa-users"></i> Gestion du personnel</a>
+            <a href="/conges/" class="menu-item"><i class="fas fa-calendar-check"></i> Gestion des congés</a>
+            <a href="/contrats/" class="menu-item"><i class="fas fa-file-contract"></i> Gestion des contrats</a>
+            <a href="/evaluations/" class="menu-item"><i class="fas fa-chart-line"></i> Gestion des évaluations</a>
+            <a href="/formations/" class="menu-item"><i class="fas fa-graduation-cap"></i> Gestion des formations</a>
+            <a href="/paie/" class="menu-item"><i class="fas fa-money-check-alt"></i> Gestion de la paie</a>
+            <a href="/stagiaires/" class="menu-item"><i class="fas fa-user-graduate"></i> Gestion des stagiaires</a>
+        </div>
+    </div>
+    <script>
+        // Responsive menu toggle
+        document.querySelectorAll('.navbar-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelector('.navbar-menu').classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

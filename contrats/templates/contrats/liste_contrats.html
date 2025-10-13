@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des contrats</title>
+</head>
+<body>
+    <h1>Liste des contrats</h1>
+    <a href="{% url 'ajouter_contrat' %}">Ajouter un contrat</a>
+    <table border="1">
+        <tr>
+            <th>Employé</th>
+            <th>Type de contrat</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Salaire</th>
+            <th>Actions</th>
+        </tr>
+        {% for contrat in contrats %}
+        <tr>
+            <td>{{ contrat.employe }}</td>
+            <td>{{ contrat.type_contrat }}</td>
+            <td>{{ contrat.date_debut }}</td>
+            <td>{{ contrat.date_fin }}</td>
+            <td>{{ contrat.salaire }}</td>
+            <td>
+                <a href="{% url 'detail_contrat' contrat.pk %}">Détail</a> |
+                <a href="{% url 'modifier_contrat' contrat.pk %}">Modifier</a> |
+                <a href="{% url 'supprimer_contrat' contrat.pk %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

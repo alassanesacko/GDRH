@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des fiches de paie</title>
+</head>
+<body>
+    <h1>Liste des fiches de paie</h1>
+    <a href="{% url 'ajouter_fiche_paie' %}">Ajouter une fiche de paie</a>
+    <table border="1">
+        <tr>
+            <th>Employé</th>
+            <th>Mois</th>
+            <th>Année</th>
+            <th>Montant</th>
+            <th>Date de versement</th>
+            <th>Actions</th>
+        </tr>
+        {% for fiche in fiches %}
+        <tr>
+            <td>{{ fiche.employe }}</td>
+            <td>{{ fiche.mois }}</td>
+            <td>{{ fiche.annee }}</td>
+            <td>{{ fiche.montant }}</td>
+            <td>{{ fiche.date_versement }}</td>
+            <td>
+                <a href="{% url 'detail_fiche_paie' fiche.pk %}">Détail</a> |
+                <a href="{% url 'modifier_fiche_paie' fiche.pk %}">Modifier</a> |
+                <a href="{% url 'supprimer_fiche_paie' fiche.pk %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

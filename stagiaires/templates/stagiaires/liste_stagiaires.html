@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des stagiaires</title>
+</head>
+<body>
+    <h1>Liste des stagiaires</h1>
+    <a href="{% url 'ajouter_stagiaire' %}">Ajouter un stagiaire</a>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Ecole</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Sujet</th>
+            <th>Actions</th>
+        </tr>
+        {% for stagiaire in stagiaires %}
+        <tr>
+            <td>{{ stagiaire.nom }}</td>
+            <td>{{ stagiaire.prenom }}</td>
+            <td>{{ stagiaire.email }}</td>
+            <td>{{ stagiaire.telephone }}</td>
+            <td>{{ stagiaire.ecole }}</td>
+            <td>{{ stagiaire.date_debut }}</td>
+            <td>{{ stagiaire.date_fin }}</td>
+            <td>{{ stagiaire.sujet }}</td>
+            <td>
+                <a href="{% url 'detail_stagiaire' stagiaire.pk %}">Détail</a> |
+                <a href="{% url 'modifier_stagiaire' stagiaire.pk %}">Modifier</a> |
+                <a href="{% url 'supprimer_stagiaire' stagiaire.pk %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

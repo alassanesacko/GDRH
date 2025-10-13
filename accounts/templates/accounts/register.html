@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-bg">
+    <div class="login-container">
+        {% if form.errors %}
+        <div class="popup-error" id="popup-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="error-message">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        {{ error }}<br>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    {{ error }}<br>
+                {% endfor %}
+            </span>
+        </div>
+        <script>
+            setTimeout(function() {
+                var popup = document.getElementById('popup-error');
+                if (popup) { popup.style.display = 'none'; }
+            }, 15000);
+        </script>
+        {% endif %}
+        <div class="login-title">
+            <i class="fas fa-user-plus"></i>
+            Inscription
+        </div>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="input-group">
+                <label for="{{ field.id_for_label }}">
+                    {% if field.name == 'username' %}<i class="fas fa-user"></i>{% endif %}
+                    {% if field.name == 'email' %}<i class="fas fa-envelope"></i>{% endif %}
+                    {% if field.name == 'password1' or field.name == 'password2' %}<i class="fas fa-lock"></i>{% endif %}
+                    {{ field.label }}
+                </label>
+                <div class="input-icon-wrapper">
+                    <input type="{{ field.field.widget.input_type }}" name="{{ field.html_name }}" id="{{ field.id_for_label }}" class="login-input" placeholder="{{ field.label }}" {% if field.field.required %}required{% endif %}>
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="login-btn">
+                <i class="fas fa-user-plus"></i> S'inscrire
+            </button>
+        </form>
+        <div class="register-link">
+            <i class="fas fa-sign-in-alt"></i>
+            Déjà un compte ? <a href="{% url 'login' %}">Se connecter</a>
+        </div>
+    </div>
+</body>
+</html>

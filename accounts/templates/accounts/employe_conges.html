@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes congés</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/employe_conges.css' %}">
+</head>
+<body>
+    <div class="conges-container">
+        <h2 class="conges-title"><i class="fas fa-calendar-alt"></i> Mes congés</h2>
+        <div class="conges-desc">Liste de vos congés à venir ou passés.</div>
+        {% if conges_list %}
+        <div class="conges-list">
+            {% for conge in conges_list %}
+            <div class="conges-item">
+                <i class="fas fa-plane-departure"></i>
+                <span><strong>Du :</strong> {{ conge.date_debut }} <strong>au</strong> {{ conge.date_fin }}</span>
+                <span><strong>Motif :</strong> {{ conge.motif }}</span>
+                <span><strong>Statut :</strong> {{ conge.statut }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="conges-empty"><i class="fas fa-info-circle"></i> Aucun congé enregistré.</div>
+        {% endif %}
+              <a href="{% url 'dashboard_employe' %}" class="logout-link"> <i class="fas fa-home"></i> Dashboard </a>
+    </div>
+</body>
+</html>

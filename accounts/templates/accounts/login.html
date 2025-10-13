@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connexion</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-bg">
+    <div class="login-container">
+        <h2 class="login-title"><i class="fas fa-user-circle"></i> Connexion</h2>
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" name="username" id="username" required placeholder="Entrez votre nom d'utilisateur" class="login-input">
+            </div>
+            <div class="input-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required placeholder="Entrez votre mot de passe" class="login-input">
+            </div>
+            <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
+        </form>
+        {% if error %}
+            <div class="popup-error" id="popup-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>{{ error }}</span>
+                <button class="close-btn" onclick="this.parentElement.style.display='none'">Fermer</button>
+            </div>
+            <script>
+                setTimeout(function() {
+                    var popup = document.getElementById('popup-error');
+                    if (popup) popup.style.display = 'none';
+                }, 5000);
+            </script>
+        {% endif %}
+        <p class="register-link">Pas encore de compte ? <a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> S'inscrire</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Style du formulaire completer_profil pour l'application personnel */
+
+.form-label {
+    color: #34495e;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    letter-spacing: 0;
+}
+.form-label i {
+    margin-right: 6px;
+    color: #2980b9;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+    margin-bottom: 1.1rem;
+}
+
+.input-icon-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Style des inputs et boutons du formulaire */
+.login-input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #b2bec3;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7fafd;
+    color: #34495e;
+    margin-bottom: 0.2rem;
+    transition: border 0.2s;
+}
+.login-input:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: linear-gradient(90deg, #2980b9 60%, #6dd5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1.2rem;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.09);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.login-btn:hover {
+    background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2px;
+}

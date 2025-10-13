@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon profil</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/employe_profil.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-user"></i> Mon profil</h2>
+        <div class="profile-info" style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                <p><i class="fas fa-user"></i> <strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email :</strong> {{ user.email }}</p>
+                {% if employe %}
+                    <p><i class="fas fa-id-card"></i> <strong>Nom :</strong> {{ employe.nom }}</p>
+                    <p><i class="fas fa-id-card"></i> <strong>Prénom :</strong> {{ employe.prenom }}</p>
+                    <p><i class="fas fa-birthday-cake"></i> <strong>Date de naissance :</strong> {{ employe.date_naissance }}</p>
+                {% endif %}
+            </div>
+            <div style="flex: 1 1 220px; min-width: 220px;">
+                {% if employe %}
+                    <p><i class="fas fa-briefcase"></i> <strong>Poste :</strong> {{ employe.poste }}</p>
+                    <p><i class="fas fa-building"></i> <strong>Service :</strong> {{ employe.service }}</p>
+                    <p><i class="fas fa-calendar-check"></i> <strong>Date d'embauche :</strong> {{ employe.date_embauche }}</p>
+                    <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> {{ employe.telephone }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> {{ employe.adresse }}</p>
+                {% else %}
+                    <p>Profil employé non renseigné.</p>
+                {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'dashboard_employe' %}" class="logout-link"> <i class="fas fa-home"></i> Dashboard </a>
+        <a href="{% url 'logout' %}" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </div>
+</body>
+</html>

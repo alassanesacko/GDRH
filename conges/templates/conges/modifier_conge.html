@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le congé</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/dashboard_drh.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-users"></i> Personnel
+        </div>
+        <button class="navbar-toggle" onclick="document.querySelector('.navbar-menu').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-menu">
+            <a href="/personnel/"><i class="fas fa-users"></i> Personnel</a>
+            <a href="/conges/"><i class="fas fa-calendar-check"></i> Congés</a>
+            <a href="/contrats/"><i class="fas fa-file-contract"></i> Contrats</a>
+            <a href="/evaluations/"><i class="fas fa-chart-line"></i> Évaluations</a>
+            <a href="/formations/"><i class="fas fa-graduation-cap"></i> Formations</a>
+            <a href="/paie/"><i class="fas fa-money-check-alt"></i> Paie</a>
+            <a href="/stagiaires/"><i class="fas fa-user-graduate"></i> Stagiaires</a>
+        </div>
+        <a href="{% url 'logout' %}" class="navbar-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="container">
+        <div class="welcome">
+            <h1>Modifier le congé</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Enregistrer</button>
+            </form>
+            <a href="{% url 'liste_conges' %}">Retour à la liste</a>
+        <div>
+    <div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Style pour la page employé paie */
+
+.paie-container {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background: #f7fafd;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.09);
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paie-title {
+    color: #2980b9;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.paie-desc {
+    font-size: 1.15rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.paie-list {
+    width: 100%;
+    margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.paie-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.08rem;
+    color: #34495e;
+}
+
+.paie-item i {
+    color: #2980b9;
+    font-size: 1.2rem;
+}
+
+.paie-empty {
+    color: #e74c3c;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.profil-btn {
+    padding: 0.6rem 1.1rem;
+    background: linear-gradient(90deg, #2980b9 60%, #6dd5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.09);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.profil-btn:hover {
+    background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+}

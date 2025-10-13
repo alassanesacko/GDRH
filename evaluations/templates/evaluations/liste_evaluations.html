@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des évaluations</title>
+</head>
+<body>
+    <h1>Liste des évaluations</h1>
+    <a href="{% url 'ajouter_evaluation' %}">Ajouter une évaluation</a>
+    <table border="1">
+        <tr>
+            <th>Employé</th>
+            <th>Date</th>
+            <th>Note</th>
+            <th>Commentaire</th>
+            <th>Actions</th>
+        </tr>
+        {% for evaluation in evaluations %}
+        <tr>
+            <td>{{ evaluation.employe }}</td>
+            <td>{{ evaluation.date }}</td>
+            <td>{{ evaluation.note }}</td>
+            <td>{{ evaluation.commentaire }}</td>
+            <td>
+                <a href="{% url 'detail_evaluation' evaluation.pk %}">Détail</a> |
+                <a href="{% url 'modifier_evaluation' evaluation.pk %}">Modifier</a> |
+                <a href="{% url 'supprimer_evaluation' evaluation.pk %}">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

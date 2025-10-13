@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Compléter mon profil</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'personnel/completer_profil.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/employe_profil.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-user-edit"></i> Compléter mon profil</h2>
+        {% if error_message %}
+        <div class="popup-error" id="popup-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="error-message">{{ error_message }}</span>
+        </div>
+        <script>
+            setTimeout(function() {
+                var popup = document.getElementById('popup-error');
+                if (popup) { popup.style.display = 'none'; }
+            }, 15000);
+        </script>
+        {% endif %}
+        {% if form.errors %}
+        <div class="popup-error" id="popup-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="error-message">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        {{ error }}<br>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    {{ error }}<br>
+                {% endfor %}
+            </span>
+        </div>
+        <script>
+            setTimeout(function() {
+                var popup = document.getElementById('popup-error');
+                if (popup) { popup.style.display = 'none'; }
+            }, 15000);
+        </script>
+        {% endif %}
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label class="form-label" for="{{ field.id_for_label }}">
+                    {% if field.field.widget.attrs.icon %}
+                        <i class="{{ field.field.widget.attrs.icon }}"></i>
+                    {% endif %}
+                    {{ field.label }}
+                </label>
+                <div class="input-icon-wrapper">
+                    {{ field }}
+                </div>
+                {% if field.errors %}
+                    <div class="error-message">{{ field.errors|striptags }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="login-btn"><i class="fas fa-save"></i> Enregistrer</button>
+        </form>
+        <a href="{% url 'employe_profil' %}" class="logout-link" style="margin-top:1rem;"><i class="fas fa-arrow-left"></i> Retour au profil</a>
+    </div>
+</body>
+</html>

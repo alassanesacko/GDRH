@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supprimer le contrat</title>
+</head>
+<body>
+    <h1>Supprimer le contrat</h1>
+    <p>Voulez-vous vraiment supprimer ce contrat ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, supprimer</button>
+        <a href="{% url 'liste_contrats' %}">Annuler</a>
+    </form>
+</body>
+</html>

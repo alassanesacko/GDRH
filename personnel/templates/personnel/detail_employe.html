@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'employé</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/dashboard_drh.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <i class="fas fa-users"></i> Personnel
+        </div>
+        <button class="navbar-toggle" onclick="document.querySelector('.navbar-menu').classList.toggle('active')">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-menu">
+            <a href="/personnel/"><i class="fas fa-users"></i> Personnel</a>
+            <a href="/conges/"><i class="fas fa-calendar-check"></i> Congés</a>
+            <a href="/contrats/"><i class="fas fa-file-contract"></i> Contrats</a>
+            <a href="/evaluations/"><i class="fas fa-chart-line"></i> Évaluations</a>
+            <a href="/formations/"><i class="fas fa-graduation-cap"></i> Formations</a>
+            <a href="/paie/"><i class="fas fa-money-check-alt"></i> Paie</a>
+            <a href="/stagiaires/"><i class="fas fa-user-graduate"></i> Stagiaires</a>
+        </div>
+        <a href="{% url 'logout' %}" class="navbar-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="container">
+        <div class="welcome">
+            <h1>Détail de l'employé</h1>
+            <p><strong>Nom :</strong> {{ employe.nom }}</p>
+            <p><strong>Prénom :</strong> {{ employe.prenom }}</p>
+            <p><strong>Date de naissance :</strong> {{ employe.date_naissance }}</p>
+            <p><strong>Poste :</strong> {{ employe.poste }}</p>
+            <p><strong>Service :</strong> {{ employe.service }}</p>
+            <p><strong>Date d'embauche :</strong> {{ employe.date_embauche }}</p>
+            <p><strong>Email :</strong> {{ employe.email }}</p>
+            <p><strong>Téléphone :</strong> {{ employe.telephone }}</p>
+            <p><strong>Adresse :</strong> {{ employe.adresse }}</p>
+            <a href="{% url 'modifier_employe' employe.pk %}">Modifier</a> |
+            <a href="{% url 'supprimer_employe' employe.pk %}">Supprimer</a> |
+            <a href="{% url 'liste_employes' %}">Retour à la liste</a>
+
+        <div>
+    <div>
+
+    
+</body>
+</html>
