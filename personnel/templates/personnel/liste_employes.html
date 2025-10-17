@@ -8,6 +8,7 @@
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'accounts/dashboard_drh.css' %}">
+    <link rel="stylesheet" href="{% static 'personnel/liste_employes.css' %}">
 </head>
 <body>
     <nav class="navbar">
@@ -28,10 +29,18 @@
         </div>
         <a href="{% url 'logout' %}" class="navbar-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
     </nav>
-    <div class="container">
-        <div class="welcome">
-            <h2><i class="fas fa-users"></i> Liste des employés</h2>
-            <a href="{% url 'ajouter_employe' %}" class="menu-item" style="margin-bottom:1.5rem;display:inline-block;"><i class="fas fa-user-plus"></i> Ajouter un employé</a>
+    <div class="container container-list">
+        <div class="header-row">
+            <div style="display:flex; align-items:center; gap:1rem;">
+                <h2 style="margin:0;"><i class="fas fa-users"></i> Liste des employés</h2>
+            </div>
+            <div>
+                <a href="{% url 'ajouter_employe' %}" class="menu-item add-btn"><i class="fas fa-user-plus"></i> Ajouter un employé</a>
+                <a href="{% url 'dashboard_drh' %}" class="btn-secondary menu-item"><i class="fas fa-arrow-left"></i> Retour au dashboard</a>
+
+            </div>
+        </div>
+        <div class="table-wrapper">
             <table class="table-employes">
                 <thead>
                     <tr>
@@ -45,26 +54,27 @@
                     </tr>
                 </thead>
             <tbody>
-        <div>
+        
             {% for employe in employes %}
                 <tr>
-                    <td>{{ employe.nom }}</td>
-                    <td>{{ employe.prenom }}</td>
-                    <td>{{ employe.poste }}</td>
-                    <td>{{ employe.service }}</td>
-                    <td>{{ employe.email }}</td>
-                    <td>{{ employe.telephone }}</td>
-                    <td>
+                    <td data-label="Nom">{{ employe.nom }}</td>
+                    <td data-label="Prénom">{{ employe.prenom }}</td>
+                    <td data-label="Poste">{{ employe.poste }}</td>
+                    <td data-label="Service">{{ employe.service }}</td>
+                    <td data-label="Email">{{ employe.email }}</td>
+                    <td data-label="Téléphone">{{ employe.telephone }}</td>
+                    <td data-label="Actions">
                         <div class="crud-actions">
                             <a href="{% url 'detail_employe' employe.pk %}"><i class="fas fa-eye"></i> Détail</a>
                             <a href="{% url 'modifier_employe' employe.pk %}"><i class="fas fa-edit"></i> Modifier</a>
-                            <a href="{% url 'supprimer_employe' employe.pk %}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            <a href="{% url 'supprimer_employe' employe.pk %}" class="delete"><i class="fas fa-trash-alt"></i> Supprimer</a>
                         </div>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        </div>
     </div>
     <script>
         // Responsive menu toggle

@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'accounts/dashboard_drh.css' %}">
+    <link rel="stylesheet" href="{% static 'personnel/employe_forms.css' %}">
 </head>
 <body>
     <nav class="navbar">
@@ -28,23 +29,28 @@
         <a href="{% url 'logout' %}" class="navbar-logout"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
     </nav>
     <div class="container">
-        <div class="welcome">
-            <h1>Détail de l'employé</h1>
-            <p><strong>Nom :</strong> {{ employe.nom }}</p>
-            <p><strong>Prénom :</strong> {{ employe.prenom }}</p>
-            <p><strong>Date de naissance :</strong> {{ employe.date_naissance }}</p>
-            <p><strong>Poste :</strong> {{ employe.poste }}</p>
-            <p><strong>Service :</strong> {{ employe.service }}</p>
-            <p><strong>Date d'embauche :</strong> {{ employe.date_embauche }}</p>
-            <p><strong>Email :</strong> {{ employe.email }}</p>
-            <p><strong>Téléphone :</strong> {{ employe.telephone }}</p>
-            <p><strong>Adresse :</strong> {{ employe.adresse }}</p>
-            <a href="{% url 'modifier_employe' employe.pk %}">Modifier</a> |
-            <a href="{% url 'supprimer_employe' employe.pk %}">Supprimer</a> |
-            <a href="{% url 'liste_employes' %}">Retour à la liste</a>
-
-        <div>
-    <div>
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-user"></i> Détail de l'employé</h2>
+                <div class="form-actions">
+                    <a href="{% url 'liste_employes' %}" class="btn-secondary">Retour à la liste</a>
+                    <a href="{% url 'modifier_employe' employe.pk %}" class="btn-primary">Modifier</a>
+                    <a href="{% url 'supprimer_employe' employe.pk %}" class="btn-secondary danger">Supprimer</a>
+                </div>
+            </div>
+            <div class="field-list">
+                <p><strong>Nom :</strong> {{ employe.nom }}</p>
+                <p><strong>Prénom :</strong> {{ employe.prenom }}</p>
+                <p><strong>Date de naissance :</strong> {{ employe.date_naissance }}</p>
+                <p><strong>Poste :</strong> {{ employe.poste }}</p>
+                <p><strong>Service :</strong> {{ employe.service }}</p>
+                <p><strong>Date d'embauche :</strong> {{ employe.date_embauche }}</p>
+                <p><strong>Email :</strong> {{ employe.email }}</p>
+                <p><strong>Téléphone :</strong> {{ employe.telephone }}</p>
+                <p><strong>Adresse :</strong> {{ employe.adresse }}</p>
+            </div>
+        </div>
+    </div>
 
     
 </body>

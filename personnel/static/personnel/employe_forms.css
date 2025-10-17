@@ -1,0 +1,88 @@
+/* Styles partagés pour les pages detail/ajouter/modifier/supprimer employé */
+
+.container .card {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.6rem;
+    box-shadow: 0 8px 28px rgba(44,62,80,0.08);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card-header h2 {
+    margin: 0;
+    color: #2980b9;
+}
+
+.field-list p {
+    margin: 0.45rem 0;
+    font-size: 1.02rem;
+    color: #34495e;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-card label {
+    font-weight: 600;
+    color: #34495e;
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card input[type="date"],
+.form-card select,
+.form-card textarea {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #e1eef6;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f8fbfe;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+    margin-top: 0.8rem;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg,#2980b9 60%,#6dd5fa 100%);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: #f1f6f9;
+    color: #34495e;
+    border: none;
+    padding: 0.55rem 0.95rem;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.danger {
+    background: #ffecec;
+    color: #e74c3c;
+    border: 1px solid #f5c6cb;
+}
+
+.center-text {
+    text-align: center;
+}

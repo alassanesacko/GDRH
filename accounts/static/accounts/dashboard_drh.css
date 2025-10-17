@@ -56,6 +56,19 @@ body {
     color: #fff;
 }
 
+/* active link highlight */
+.navbar-menu a.active {
+    background: linear-gradient(90deg, #6dd5fa 60%, #2980b9 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(41, 128, 185, 0.12);
+}
+
+.navbar-user {
+    margin-right: 1rem;
+    color: #34495e;
+    font-weight: 600;
+}
+
 .navbar-logout {
     color: #e74c3c;
     font-weight: 600;
